@@ -1,0 +1,41 @@
+local api = {
+	x_error_code =  -1,
+    protocol =  "HTTP/1.1",
+    remote_addr =  "104.197.229.122",
+    status =  "200",
+    content_length =  18909,
+    node_version =  "e4a59d4-1.0.0",
+    referer =  "-",
+    node_host =  "157.119.232.12",
+    node_speed =  0.022398222477064,
+    upcode =  "200",
+    body_bytes_sent =  5,
+    bucket =  "st-prod",
+    uptime =  0.218,
+    xstate =  "-",
+    timestamp =  "09/May/2017 = 23 = 00 = 56 +0800",
+    x_request_id =  "ea536fff0c8783bf2e2b172cf4e198bd",
+    content_type =  "-",
+    node_name =  "ntt-cn-hkg-012",
+    stream =  "-",
+    request_time =  0.218,
+    upstream_addr =  "-",
+    method =  "PUT",
+    x_forwarded_for =  "104.197.229.122",
+    upstream_response_time =  -1,
+    remote_user =  "-",
+    req_uri =  "/st-prod/prodimage/ead2582d81407fc.jpg",
+    user_agent =  "Java/1.8.0_92",
+    node_room =  "ntt-cn-hkg",
+    xtimestamp =  1494342056000,
+    request_uri =  "/st-prod/prodimage/ead2582d81407fc.jpg",
+    upnode =  "115.231.100.115 = 80",
+    upstream_status =  "-",
+    scheme =  "http",
+    node_type =  "api_access_log",
+    http_host =  "v0.api.upyun.com"
+}
+
+local tools = require "tools"
+
+tools.gen("api", api)
