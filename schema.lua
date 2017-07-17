@@ -4,6 +4,8 @@ local cmsgpack = require "cmsgpack"
 local sproto = require "sproto"
 local print_r = require "print_r"
 
+local rapidjson = require "rapidjson"
+
 local sp = sproto.parse [[
 .log {
 slice_size                      1 : integer
@@ -239,7 +241,7 @@ local function encode(cb, unpack, log, name, cbname)
     ngx.update_time()
     local start = ngx.now()
 
-    times = 1000000
+    times = 10000
     for i=1, times do
         if cbname == "sproto" then
             local temp = cb(sp, "log", log)
@@ -260,8 +262,13 @@ encode(cjson.encode, cjson.decode, log, "string key", "cjson")
 encode(cjson.encode, cjson.decode, log_index, "integer key", "cjson")
 ngx.print("------------------\n")
 
+
+encode(rapidjson.encode, rapidjson.decode, log, "string key", "rapidjson")
+encode(rapidjson.encode, rapidjson.decode, log_index, "integer key", "rapidjson")
+ngx.print("------------------\n")
+
 encode(cmsgpack.pack, cmsgpack.unpack, log, "string key", "cmsgpack")
 encode(cmsgpack.pack, cmsgpack.unpack, log_index, "integer key", "cmsgpack")
 ngx.print("------------------\n")
 
-encode(sp.encode, sp.decode, log, "string key", "sproto")
+--encode(sp.encode, sp.decode, log, "string key", "sproto")
